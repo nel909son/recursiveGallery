@@ -1,4 +1,4 @@
-#canvas1 {
+canvas1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,4 +16,8 @@
     justify-content: center;
     align-items: center;
     z-index: 999;
+}
+
+body {
+    background-color: black;
 }
