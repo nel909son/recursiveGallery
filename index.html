@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
         <link rel="stylesheet" href="style.css">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <div id="main-div">
+        <div id="row">
+    
+    <div class="canvas-container1 column">
+        
     <canvas id="canvas1"  > </canvas>
-    <h1 id="logo">RECURSIVE POMONA </h1>
+ 
     <svg>
         <defs>
             <filter id='goo'>
@@ -25,8 +31,27 @@
             </filter>
         </defs>
     </svg>
-    
-    <script src="text.js">
+    </div>
+
+    <div class="canvas-container2 column">
+<canvas id="canvas2"></canvas>
+        <p>Recursive is a workspace, art gallery, and event space for digital artists, and collectors to meet and collaborate.</p>
+        <p> Located in Pomona, California. Opening March, 2022.</p>
+        <p>Sign up below to keep up to date!</p>
+            <form class="w-full max-w-sm">
+                <div class="flex items-center border-b border-teal-500 py-2">
+                  <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="Email" aria-label="Full name">
+                  <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-black py-1 px-2 rounded" type="button">
+                    Sign Up
+                  </button>
+                  
+                </div>
+              </form>   
+    </div>
+    </div>
+</div>
+    <script src="particle.js"> </script>
+    <script src="text.js"></script>
 
     </script>
 </body>

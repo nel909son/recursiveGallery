@@ -1,23 +1,48 @@
-canvas1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+
+#main-div{
+
+}
+
+#row {
+    display: flex;
+    flex-direction: row;
+   width: 100vw;
+   height: 100vh;
+ 
+}
+
+
+#canvas-container1{
+    width: 50%;
+    height: 100vh;
+    
+}
+#canvas1 {
+    
+    
+   
+    width:70%;
     height: 100%;
-    z-index: -10;
+    
     filter: url("#goo")
 
 
 }
 
-#logo {
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+#canvas-container2 {
+    
+    width: 50%;
+    height: 25%;
 }
 
+#canvas2{
+    width: 60%;
+}
+
+
+
 body {
-    background-color: black;
+    margin: 0;
+    
+   
 }

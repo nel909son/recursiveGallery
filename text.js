@@ -1,39 +1,53 @@
-const canvas = document.getElementById('canvas1');
+let canvasText = document.getElementById('canvas2');
 
-const context = canvas.getContext('2d');
+let contextText = canvasText.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvasText.width = window.innerWidth;
+canvasText.height = window.innerHeight;
 
-let particleArray = [];
-const numberOfParticles = 200;
+let particleArrayText = [];
+
+let textAnimation;
 let adjustX = 10;
 let adjustY = 20;
 
-//mouse position
+//mouseText position
 
-let mouse = {
+let mouseText = {
     x: null,
     y: null,
     radius: 150
 }
 
 window.addEventListener('mousemove', function(event){
-    mouse.x = event.x;
-    mouse.y = event.y;
+    mouseText.x = event.x;
+    mouseText.y = event.y;
     
 
     //console.log(mouse.x, mouse.y)
 });
 
-context.fillStyle = 'white';
-context.font = '20px Verdana';
-context.fillText('recursive', 0, 30);
+window.addEventListener('resize', function() {
+    cancelAnimationFrame(textAnimation)
+    canvas.width = window.innerWidth;
 
-const textCors = context.getImageData(0,0,100,100)
+    canvas.height = window.innerHeight;
+    particleArray =[];
+    init()
+    animate();
+   
 
 
-class Particles{
+})
+
+contextText.fillStyle = 'white';
+contextText.font = '20px Verdana';
+contextText.fillText('recursive', 0, 30);
+
+const textCors = contextText.getImageData(0,0,100,100)
+
+
+class PartcilesText{
     constructor(x,y) {
         this.x = x ;
         this.y = y;
@@ -44,25 +58,25 @@ class Particles{
     }
 
     draw(){
-        context.fillStyle = 'red';
-        context.beginPath();
-        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        context.closePath();
-        context.fill();
+        contextText.fillStyle = 'red';
+        contextText.beginPath();
+        contextText.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        contextText.closePath();
+        contextText.fill();
     }
 
     update() {
-        let dx = mouse.x - this.x;
-        let dy = mouse.y - this.y;
+        let dx = mouseText.x - this.x;
+        let dy = mouseText.y - this.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
         let forceDirectionX = dx /distance;
         let forceDirectionY = dy / distance;
-        let maxDistance = mouse.radius;
+        let maxDistance = mouseText.radius;
         let force = (maxDistance - distance) / maxDistance;
         let directionX = forceDirectionX * force * this.density;
         let directionY = forceDirectionY * force * this.density;
 
-        if (distance < mouse.radius) {
+        if (distance < mouseText.radius) {
             this.x -= directionX;
             this.y -= directionY;
         }
@@ -79,27 +93,27 @@ class Particles{
     }
 }
 
-function init(){
-    particleArray = [];
+function initText(){
+    particleArrayText = [];
     for ( let y =0, y2 = textCors.height; y < y2; y++){
         for (let x = 0, x2 = textCors.width; x < x2; x++){
             if (textCors.data[(y * 4 * textCors.width) + (x * 4) + 3] > 128){
                 let positionX = x + adjustX;
                 let positionY = y + adjustY;
-                particleArray.push(new Particles(positionX * 10,positionY * 10))
+                particleArrayText.push(new PartcilesText(positionX * 10,positionY * 10))
         }}}
 }
 
-function animate() {
-    context.clearRect(0,0,canvas.width, canvas.height);
-    for (let i = 0; i < particleArray.length; i++) {
+function animateText() {
+    contextText.clearRect(0,0,canvasText.width, canvasText.height);
+    for (let i = 0; i < particleArrayText.length; i++) {
         
-        particleArray[i].draw();
-        particleArray[i].update();
+        particleArrayText[i].draw();
+        particleArrayText[i].update();
     }
-    requestAnimationFrame(animate);
+    textAnimation = requestAnimationFrame(animateText);
 }
 
 
-init();
-animate();
+initText();
+animateText();
