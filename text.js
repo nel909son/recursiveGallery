@@ -1,9 +1,10 @@
+window.onload=function() {
 let canvasText = document.getElementById('canvas2');
 
 let contextText = canvasText.getContext('2d');
 
-canvasText.width = window.innerWidth;
-canvasText.height = window.innerHeight;
+canvasText.width = 1600;
+canvasText.height = 500;
 
 let particleArrayText = [];
 
@@ -20,6 +21,7 @@ let mouseText = {
 }
 
 window.addEventListener('mousemove', function(event){
+    
     mouseText.x = event.x;
     mouseText.y = event.y;
     
@@ -27,22 +29,10 @@ window.addEventListener('mousemove', function(event){
     //console.log(mouse.x, mouse.y)
 });
 
-window.addEventListener('resize', function() {
-    cancelAnimationFrame(textAnimation)
-    canvas.width = window.innerWidth;
-
-    canvas.height = window.innerHeight;
-    particleArray =[];
-    init()
-    animate();
-   
 
 
-})
-
-contextText.fillStyle = 'white';
-contextText.font = '20px Verdana';
-contextText.fillText('recursive', 0, 30);
+contextText.font = '1rem Verdana';
+contextText.fillText('recursive', 0, 20);
 
 const textCors = contextText.getImageData(0,0,100,100)
 
@@ -76,7 +66,7 @@ class PartcilesText{
         let directionX = forceDirectionX * force * this.density;
         let directionY = forceDirectionY * force * this.density;
 
-        if (distance < mouseText.radius) {
+        if (distance < mouseText.radius ) {
             this.x -= directionX;
             this.y -= directionY;
         }
@@ -117,3 +107,4 @@ function animateText() {
 
 initText();
 animateText();
+}

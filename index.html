@@ -3,55 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     
         <link rel="stylesheet" href="style.css">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body>
-    <div id="main-div">
+<body onload="init()">
+    <div id="sketchpadapp">
         <div id="row">
     
     <div class="canvas-container1 column">
         
-    <canvas id="canvas1"  > </canvas>
+    <canvas id="sketchpad" height="300" width="400" > </canvas>
  
-    <svg>
-        <defs>
-            <filter id='goo'>
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10"
-                result="blur"/>
-                <feColorMatrix in="blur" mode="matrix"
-                values ="1 0 0 0 0
-                         0 1 0 0 0
-                         0 0 1 0 0
-                         0 0 0 19 -9" result="goo"/>
-                <feComposite in="SourceGraphic" in2="goo"
-                operator="atop"/>
-            </filter>
-        </defs>
-    </svg>
     </div>
 
-    <div class="canvas-container2 column">
+    <div class="canvas-container2 ">
 <canvas id="canvas2"></canvas>
-        <p>Recursive is a workspace, art gallery, and event space for digital artists, and collectors to meet and collaborate.</p>
+ 
+        <p>Recursive is a workspace, art gallery, and event space. Where digital artists collaborate and connect.</p>
         <p> Located in Pomona, California. Opening March, 2022.</p>
         <p>Sign up below to keep up to date!</p>
-            <form class="w-full max-w-sm">
+            <form class="w-full max-w-sm" action="https://formspree.io/f/xeqvwkwa" method="POST" id="email-signup">
                 <div class="flex items-center border-b border-teal-500 py-2">
-                  <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="Email" aria-label="Full name">
-                  <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-black py-1 px-2 rounded" type="button">
+                  <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="email" placeholder="Email" aria-label="Email" name="email" required>
+                  <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-black py-1 px-2 rounded" type="submit">
                     Sign Up
                   </button>
+                  <div id="status"></div>
                   
                 </div>
               </form>   
-    </div>
+            </div>
     </div>
 </div>
-    <script src="particle.js"> </script>
-    <script src="text.js"></script>
+    <script src="sketch.js"></script>
+    
+    <script src="email-signup.js"> </script>
 
     </script>
 </body>
