@@ -1,6 +1,27 @@
 
 
 
+body {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+   
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+}
+
+h3 {
+    font-size: 1.7rem;
+}
+p {
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+
 #main-content{
     background-color: rgba(255, 255, 255, 0.849);
     margin-left: 400px;
@@ -15,11 +36,6 @@
 
 }
 
-.container {
-   
- 
-}
-
 #row {
     display: flex;
     flex-direction: column;
@@ -29,44 +45,6 @@
  
 }
 
-.padding {
-
-}
-
-
-#canvas-container1{
-    
-
-   
- 
-}
-
-
-
-
-
-
-body {
-    background-color: black;
-    width: 100vw;
-   height: 100vh;
-      display: flex;
-    flex-direction: column;
-   
-   align-items: center;
-   justify-content: center;
-   overflow: hidden;
-    
-   
-}
-
-h3 {
-    font-size: 1.7rem;
-}
-p {
-    padding-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
 
 #sketchpadapp {
     /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
@@ -86,16 +64,7 @@ p {
 
 
 #sketchpad {
-    
-    
-    
-   
-
-    
-    
-   
+ 
     position:relative; /* Necessary for correct mouse co-ords in Firefox */
 }
 
-@media screen and (max-width: 600px) {
-}

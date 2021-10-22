@@ -31,7 +31,7 @@ window.onload= function() {
 
     // Keep track of the mouse button being released
     function sketchpad_mouseUp() {
-        mouseDown=0;
+        mouseDown=1;
     }
 
     // Keep track of the mouse position and draw a dot if mouse button is currently pressed
