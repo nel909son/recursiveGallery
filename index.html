@@ -7,23 +7,28 @@
     
         <link rel="stylesheet" href="style.css">
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="https://cdn.rawgit.com/bradley/Blotter/master/build/blotter.min.js"></script>
+        <script src="https://cdn.rawgit.com/bradley/Blotter/3007fe6e/build/materials/fliesMaterial.js"></script>
     <title>Document</title>
 </head>
-<body onload="init()">
+<body class="container">
+    
     <div id="sketchpadapp">
-        <div id="row">
+        <div id="row" class="container">
     
     <div class="canvas-container1 column">
         
-    <canvas id="sketchpad" height="300" width="400" > </canvas>
+    <canvas id="sketchpad" > </canvas>
  
     </div>
-
-    <div class="canvas-container2 ">
-<canvas id="canvas2"></canvas>
- 
-        <p>Recursive is a workspace, art gallery, and event space. Where digital artists collaborate and connect.</p>
-        <p> Located in Pomona, California. Opening March, 2022.</p>
+    <div id="main-content" >
+    
+    <h3 style="font-weight:bold; font-size: 2rem;"> RECURSIVE </h3>    
+    <p> Workspace, art gallery, and event space.</p> <p> Where digital artists collaborate and connect.</p>
+        <p> Located in Pomona, California.</p> <p> Opening March, 2022.</p>
         <p>Sign up below to keep up to date!</p>
             <form class="w-full max-w-sm" action="https://formspree.io/f/xeqvwkwa" method="POST" id="email-signup">
                 <div class="flex items-center border-b border-teal-500 py-2">
@@ -36,12 +41,21 @@
                 </div>
               </form>   
             </div>
+    <div class="canvas-container2 ">
+<canvas id="canvas2"></canvas>
+
+</div>
+
+        
+           
     </div>
 </div>
     <script src="sketch.js"></script>
     
+    
     <script src="email-signup.js"> </script>
 
     </script>
-</body>
+   
+    
 </html>

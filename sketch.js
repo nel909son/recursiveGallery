@@ -1,23 +1,24 @@
+window.onload= function() {
+    
 
     var canvas,ctx;
 
     // Variables to keep track of the mouse position and left-button status 
     var mouseX,mouseY,mouseDown=1;
 
+    
     // Draws a dot at a specific position on the supplied canvas name
     // Parameters are: A canvas context, the x position, the y position, the size of the dot
     function drawDot(ctx,x,y,size) {
-        // Let's use black by setting RGB values to 0, and 255 alpha (completely opaque)
-        r=0; g=0; b=0; a=255;
-
-        // Select a fill style
-        ctx.fillStyle = "rgba("+r+","+g+","+b+","+(a/255)+")";
-
+        ctx.globalCompositeOperation='destination-over';
+        
+        ctx.fillStyle = 'white';
         // Draw a filled circle
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI*2, true); 
         ctx.closePath();
         ctx.fill();
+       
     } 
 
     // Clear the canvas context using the canvas width and height
@@ -25,7 +26,7 @@
     // Keep track of the mouse button being pressed and draw a dot at current location
     function sketchpad_mouseDown() {
         mouseDown=1;
-        drawDot(ctx,mouseX,mouseY,12);
+        drawDot(ctx,mouseX,mouseY,50);
     }
 
     // Keep track of the mouse button being released
@@ -40,7 +41,7 @@
 
         // Draw a dot if the mouse button is currently being pressed
         if (mouseDown==1) {
-            drawDot(ctx,mouseX,mouseY,12);
+            drawDot(ctx,mouseX,mouseY,50);
         }
     }
 
@@ -64,11 +65,19 @@
     function init() {
         // Get the specific canvas element from the HTML document
         canvas = document.getElementById('sketchpad');
+        canvas.width = window.outerWidth + 500; //document.width is obsolete
+        canvas.height = window.innerHeight; //document.height is obsolete
+   
+        //var heightRatio = 0.5;
+       // canvas.height = canvas.width * heightRatio;
+        
+
 
         // If the browser supports the canvas tag, get the 2d drawing context for this canvas
         if (canvas.getContext)
+            
             ctx = canvas.getContext('2d');
-
+           
         // Check that we have a valid context to draw on/with before adding event handlers
         if (ctx) {
             canvas.addEventListener('touchstart', sketchpad_mouseDown, false);
@@ -81,4 +90,5 @@
             window.addEventListener('mouseup', sketchpad_mouseUp, false);
         }
     
-
+        init()
+    }
