@@ -65,7 +65,7 @@ window.onload= function() {
     function init() {
         // Get the specific canvas element from the HTML document
         canvas = document.getElementById('sketchpad');
-        canvas.width = window.outerWidth + 500; //document.width is obsolete
+        canvas.width = window.outerWidth ; //document.width is obsolete
         canvas.height = window.innerHeight; //document.height is obsolete
    
         //var heightRatio = 0.5;
